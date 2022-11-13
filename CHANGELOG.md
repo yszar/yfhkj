@@ -1,5 +1,12 @@
 
 
+### [0.1.3](https://github.com/yszar/yfhkj/compare/0.1.2...0.1.3) (2022-11-13)
+
+
+### 👷‍ Build System | 构建
+
+* **Docker:** 新增Dockerfile ([a88d724](https://github.com/yszar/obsidian-vuepress/commit/a88d724a5a569936440fc2a852d1c97e3eaab294))
+
 ### [0.1.2](https://github.com/yszar/yfhkj/compare/0.1.0...0.1.2) (2022-11-13)
 
 
