@@ -9,3 +9,5 @@ GET http://127.0.0.1:8000/hello/User
 Accept: application/json
 
 ###
+
+GET http://127.0.0.1:8000/wechat/hello/?signature=ccc2b82b366d8903c4c646c130be8adf675a4390&echostr=5558365943995166655&timestamp=1668384563&nonce=1342838540
