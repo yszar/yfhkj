@@ -23,12 +23,7 @@ async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
 
-@app.get("/test")
-async def a_test():
-    return "i am a test str"
-
-
-@app.get("/wechat/hello/")
+@app.get("/wechat")
 async def hello_wechat(signature: str, timestamp: str, nonce: str, echostr: str):
     token = WECHAT_TOKEN
     temp = [token, timestamp, nonce]
