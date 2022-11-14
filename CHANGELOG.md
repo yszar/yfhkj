@@ -1,5 +1,12 @@
 
 
+### [0.1.4](https://github.com/yszar/yfhkj/compare/0.1.3...0.1.4) (2022-11-14)
+
+
+### ✅ Tests | 测试
+
+* **test:** 增加测试相关内容 ([28fdb52](https://github.com/yszar/obsidian-vuepress/commit/28fdb52802a5f6383e4e407de83a58dcde9496d8))
+
 ### [0.1.3](https://github.com/yszar/yfhkj/compare/0.1.2...0.1.3) (2022-11-13)
 
 
