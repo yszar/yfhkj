@@ -35,6 +35,6 @@ async def hello_wechat(signature: str, timestamp: str, nonce: str, echostr: str)
     temp.sort()
     res = hashlib.sha1("".join(temp).encode("utf8")).hexdigest()
     if res == signature:
-        return echostr
+        return int(echostr)
     else:
         return {"errcode": 401, "errmsg": "access denied"}
