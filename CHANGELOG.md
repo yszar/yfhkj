@@ -1,5 +1,12 @@
 
 
+### [0.1.5](https://github.com/yszar/yfhkj/compare/0.1.4...0.1.5) (2022-11-14)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复认证bug ([93bae17](https://github.com/yszar/obsidian-vuepress/commit/93bae177e2a72a74dd332652fb75b84441730866))
+
 ### [0.1.4](https://github.com/yszar/yfhkj/compare/0.1.3...0.1.4) (2022-11-14)
 
 
