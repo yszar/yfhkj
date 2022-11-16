@@ -1,5 +1,12 @@
 
 
+## [0.2.0](https://github.com/yszar/yfhkj/compare/0.1.7...0.2.0) (2022-11-16)
+
+
+### ✨ Features | 新功能
+
+* **Event:** 新增关注后自动发送消息功能 ([32b4620](https://github.com/yszar/obsidian-vuepress/commit/32b4620e08d99a483822bd9222016ef8db7b00b9))
+
 ### [0.1.7](https://github.com/yszar/yfhkj/compare/0.1.6...0.1.7) (2022-11-14)
 
 
