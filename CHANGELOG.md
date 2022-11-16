@@ -1,5 +1,12 @@
 
 
+## [0.3.0](https://github.com/yszar/yfhkj/compare/0.2.1...0.3.0) (2022-11-16)
+
+
+### ✨ Features | 新功能
+
+* **event:** 新增取消关注后加入黑名单功能 ([34506ba](https://github.com/yszar/obsidian-vuepress/commit/34506ba49d5123f304d4d011d74e3e690ecd7757))
+
 ### [0.2.1](https://github.com/yszar/yfhkj/compare/0.2.0...0.2.1) (2022-11-16)
 
 
