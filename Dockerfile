@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt -i https://mir
 COPY ./ /app
 
 # 放开端口
-EXPOSE 8080
+EXPOSE 80
 
 # 命令行运行，启动uvicorn服务，指定ip和端口(--reload：让服务器在更新代码后重新启动。仅在开发时使用该选项。)
 CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "80"]

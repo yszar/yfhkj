@@ -93,4 +93,4 @@ async def wechat_post(item: Item = Depends(XmlBody(Item)), header: str = Header(
   <MsgType><![CDATA[text]]></MsgType>
   <Content><![CDATA[感谢你关注——雨非黑科技\n\n需要什么PDF请直接回复名字\n\n原创整理:最新，最全，高清PDF]]></Content>
 </xml>"""
-    return Response(content=xml, media_type="application/xml")
+        return Response(content=xml, media_type="application/xml")
