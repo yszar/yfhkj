@@ -4,7 +4,8 @@
       "name": "yfhkj",
       "domain": "",
       "ip": "",
-      "containerId": "39d6254e080fa03fe3f166042eb0c3094a12ea4e770446f817e4170555191c14"
+      "mode": "compose",
+      "containerId": "12359e2af1c06e487ab804d647846d2b69c60e80309a3dc105703420719153c2"
     }
   ],
   "config": {
