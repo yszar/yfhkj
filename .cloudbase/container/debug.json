@@ -1,0 +1,28 @@
+{
+  "containers": [
+    {
+      "name": "yfhkj",
+      "domain": "",
+      "ip": "",
+      "mode": "compose",
+      "containerId": "05b49b8221e0d8a7f45f38fc4527bbdf5faaa134f10af51a26142b6469d5e2c3"
+    }
+  ],
+  "config": {
+    "yfhkj": {
+      "remark": "",
+      "dockerfilePath": "Dockerfile",
+      "buildDir": "",
+      "minNum": 0,
+      "maxNum": 50,
+      "cpu": 0.5,
+      "mem": 1,
+      "policyType": "cpu",
+      "policyThreshold": 60,
+      "envParams": {},
+      "customLogs": "stdout",
+      "containerPort": 80,
+      "initialDelaySeconds": 2
+    }
+  }
+}
