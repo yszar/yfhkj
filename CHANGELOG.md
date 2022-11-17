@@ -1,5 +1,12 @@
 
 
+## [0.4.0](https://github.com/yszar/yfhkj/compare/0.3.0...0.4.0) (2022-11-17)
+
+
+### ✨ Features | 新功能
+
+* **PDF:** 新增查询解压密码功能 ([9265a47](https://github.com/yszar/obsidian-vuepress/commit/9265a476c7bd171604e2401a19a779c7c921a31c))
+
 ## [0.3.0](https://github.com/yszar/yfhkj/compare/0.2.1...0.3.0) (2022-11-16)
 
 
