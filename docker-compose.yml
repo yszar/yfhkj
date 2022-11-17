@@ -16,9 +16,9 @@ services:
       - wxcloud=yfhkj
       - role=container
     environment:
-      - MYSQL_USERNAME=
-      - MYSQL_PASSWORD=
-      - MYSQL_ADDRESS=
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=Andylau1987212
+      - MYSQL_ADDRESS=10.31.102.227
 networks:
   default:
     external:

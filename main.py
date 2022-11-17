@@ -13,7 +13,7 @@ load_dotenv(verbose=True)
 
 WECHAT_TOKEN = os.getenv("WECHAT_TOKEN")
 MYSQL_HOST = os.getenv("MYSQL_HOST")
-MYSQL_PORT = os.getenv("MYSQL_PORT")
+MYSQL_PORT = int(os.getenv("MYSQL_PORT"))
 MYSQL_USER = os.getenv("MYSQL_USER")
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD")
 MYSQL_DATABASE = os.getenv("MYSQL_DATABASE")
@@ -86,12 +86,42 @@ async def wechat_get(signature: str, timestamp: str, nonce: str, echostr: str):
 
 @app.post("/wechat")
 async def wechat_post(item: Item = Depends(XmlBody(Item)), header: str = Header(None)):
+    db = pymysql.connect(
+        host=MYSQL_HOST,
+        port=MYSQL_PORT,
+        user=MYSQL_USER,
+        password=MYSQL_PASSWORD,
+        database=MYSQL_DATABASE,
+    )
+    cursor = db.cursor(cursor=pymysql.cursors.DictCursor)
     msg_type = item["xml"]["MsgType"]
-    print(msg_type)
-    match msg_type:
-        case "event":
-            event = item["xml"]["Event"]
-            if event == "subscribe":
+    if msg_type == "text":
+        content = item["xml"]["Content"]
+        openid = item["xml"]["FromUserName"]
+        match content:
+            case content if content.isalnum() and len(content) == 6:
+                sql = f"SELECT `times` FROM `yfhkj_queries` WHERE `openid`='{openid}' AND `date`='{datetime.date.today()}'"
+                cursor.execute(sql)
+                print("去数据库查密码")
+                sql = f"SELECT `password` FROM `yfhkj_my_pdf` WHERE `key`='{content}'"
+                zip_password = cursor.execute(sql)
+                if zip_password != 0:
+                    return cursor.fetchone()["password"]
+                else:
+                    xml = f"""<xml>
+                <ToUserName><![CDATA[{item["xml"]["FromUserName"]}]]></ToUserName>
+                <FromUserName><![CDATA[{item["xml"]["ToUserName"]}]]></FromUserName>
+                <CreateTime>{int(ts)}</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[输入错误，请输入正确的验证码]]></Content>
+                </xml>"""
+                    return Response(content=xml, media_type="application/xml")
+            case _:
+                pass
+    elif msg_type == "event":
+        event = item["xml"]["Event"]
+        match event:
+            case "subscribe":
                 ts = datetime.datetime.now().timestamp()
                 xml = f"""<xml>
                 <ToUserName><![CDATA[{item["xml"]["FromUserName"]}]]></ToUserName>
@@ -101,15 +131,8 @@ async def wechat_post(item: Item = Depends(XmlBody(Item)), header: str = Header(
                 <Content><![CDATA[感谢你关注——雨非黑科技\n\n需要什么PDF请直接回复名字\n\n原创整理:最新，最全，高清PDF]]></Content>
                 </xml>"""
                 return Response(content=xml, media_type="application/xml")
-            elif event == "unsubscribe":
+            case "unsubscribe":
                 openid = item["xml"]["FromUserName"]
-                db = pymysql.connect(
-                    host=MYSQL_HOST,
-                    user=MYSQL_USER,
-                    password=MYSQL_PASSWORD,
-                    database=MYSQL_DATABASE,
-                )
-                cursor = db.cursor()
                 sql = (
                     f"INSERT INTO yfhkj_black_user(`openid`,`un_sub_times`,`restore`) VALUES ({openid},1,1) "
                     f"ON DUPLICATE KEY UPDATE un_sub_times=un_sub_times+1,restore=restore-1;"
@@ -119,12 +142,7 @@ async def wechat_post(item: Item = Depends(XmlBody(Item)), header: str = Header(
                     db.commit()
                 except:
                     db.rollback()
+                db.close()
                 return "success"
-        case "1":
-            pass
-        case "2":
-            pass
-        case "3":
-            pass
-        case _:
-            pass
+    else:
+        return "success"
