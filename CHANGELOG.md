@@ -1,5 +1,12 @@
 
 
+## [0.5.0](https://github.com/yszar/yfhkj/compare/0.4.0...0.5.0) (2022-11-17)
+
+
+### ✨ Features | 新功能
+
+* **user:** 新增黑名单功能 ([8207dec](https://github.com/yszar/obsidian-vuepress/commit/8207decce12b41d7863c07aa8769124d8321b1d4))
+
 ## [0.4.0](https://github.com/yszar/yfhkj/compare/0.3.0...0.4.0) (2022-11-17)
 
 
